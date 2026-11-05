@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitcoin Weather · How the world's news feels about Bitcoin</title>
+<meta name="description" content="A live, animated map of Bitcoin news sentiment around the world, built from GDELT data and updated every 15 minutes.">
+<meta property="og:title" content="Bitcoin Weather">
+<meta property="og:description" content="How the world's news feels about Bitcoin, right now.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23f2b84b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Bitcoin Weather</h1>
+    <p class="tag">How the world's news feels about Bitcoin, updated every 15 minutes</p>
+  </div>
+  <div class="price" id="price" hidden>
+    <span class="price-label">BTC</span>
+    <span class="price-val" id="priceVal">–</span>
+    <span class="price-chg" id="priceChg"></span>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="map-wrap" aria-label="Sentiment map">
+    <div class="forecast" id="forecast">
+      <div class="fc-icon" id="fcIcon" aria-hidden="true"></div>
+      <div class="fc-body">
+        <div class="fc-kicker" id="fcWhen">Global forecast</div>
+        <div class="fc-cond" id="fcCond">Loading…</div>
+        <div class="fc-stats"><span id="fcTone">–</span> tone · <span id="fcN">–</span> articles</div>
+      </div>
+    </div>
+    <canvas id="map" role="img" aria-label="World map shaded by Bitcoin news tone"></canvas>
+    <div class="tooltip" id="tip" hidden></div>
+    <div class="legend" aria-label="Legend">
+      <div class="legend-title">News tone</div>
+      <div class="legend-bar"></div>
+      <div class="legend-ticks"><span>−4 Storms</span><span>0 Neutral</span><span>+4 Sunny</span></div>
+      <div class="legend-note">Bubble size = number of articles</div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section class="panel">
+      <h2>Country outlook</h2>
+      <p class="panel-sub" id="ctrySub">Last 3 hours</p>
+      <ol class="countries" id="countries"></ol>
+    </section>
+    <section class="panel">
+      <h2>Latest headlines</h2>
+      <ul class="heads" id="heads"></ul>
+    </section>
+  </aside>
+
+  <section class="timeline" aria-label="24-hour timeline">
+    <div class="tl-head">
+      <button id="play" class="play" aria-label="Replay the last 24 hours">▶ Replay 24h</button>
+      <div class="tl-label" id="tlLabel"></div>
+      <button id="live" class="live on">● Live</button>
+    </div>
+    <svg id="tl" role="img" aria-label="Global Bitcoin news tone over the last 24 hours"></svg>
+    <input id="scrub" type="range" min="0" max="95" value="95" aria-label="Choose a time">
+  </section>
+</main>
+
+<footer class="foot">
+  <p><strong>How to read this:</strong> every 15 minutes, <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT</a> scores the tone of news articles worldwide (how positive or negative the wording is). This map keeps the articles about Bitcoin and places them at the locations they mention. It measures the mood of <em>news coverage</em>, not of individual people, and it is not financial advice.</p>
+  <p class="muted">Conditions: Sunny ≥ +1 · Partly sunny 0 to +1 · Cloudy −1.5 to 0 · Rain −3 to −1.5 · Storms below −3. Price from CoinGecko. Data updated <span id="updated">–</span>.</p>
+  <p class="muted">© <span id="yr"></span> Eric Robertson · ericrobertson.org</p>
+</footer>
+
+<script src="vendor/d3-array.min.js"></script>
+<script src="vendor/d3-geo.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
