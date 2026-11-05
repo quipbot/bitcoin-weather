@@ -1,0 +1,62 @@
+name: Update Bitcoin Weather
+
+on:
+  schedule:
+    # Every 15 minutes, a few minutes after GDELT publishes its file
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["docs/**", "scripts/**", ".github/workflows/**"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: bitcoin-weather
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull latest GDELT data
+        if: github.event_name != 'push'
+        run: python scripts/update_data.py
+
+      - name: Save data to the repo
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "bitcoin-weather-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/weather.json
+          if git diff --cached --quiet; then
+            echo "No change"
+          else
+            git commit -m "Update Bitcoin Weather data" -q
+            git pull --rebase -q && git push -q
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
