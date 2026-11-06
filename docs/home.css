@@ -55,7 +55,7 @@ a{color:var(--accent)}
 
 /* apps */
 .app-feature .shots{flex:1.2;display:flex;gap:12px;justify-content:center;align-items:center;padding:24px;background:radial-gradient(circle at 50% 30%,#1d2a4b,#0e1527 75%)}
-.app-feature .shots img{width:30%;max-width:170px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid #2b3658}
+.app-feature .shots img{width:30%;max-width:170px;aspect-ratio:320/452;object-fit:cover;object-position:bottom;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid #2b3658}
 .app-feature .shots img:nth-child(2){transform:translateY(-10px)}
 .app-head{display:flex;gap:14px;align-items:center}
 .app-icon{width:64px;height:64px;border-radius:15px;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.4)}
