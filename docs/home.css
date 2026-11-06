@@ -53,6 +53,25 @@ a{color:var(--accent)}
 .empty h2{margin:0 0 6px;color:var(--ink);font-size:20px}
 .empty p{margin:0;font-size:15px}
 
+/* apps */
+.app-feature .shots{flex:1.2;display:flex;gap:12px;justify-content:center;align-items:center;padding:24px;background:radial-gradient(circle at 50% 30%,#1d2a4b,#0e1527 75%)}
+.app-feature .shots img{width:30%;max-width:170px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid #2b3658}
+.app-feature .shots img:nth-child(2){transform:translateY(-10px)}
+.app-head{display:flex;gap:14px;align-items:center}
+.app-icon{width:64px;height:64px;border-radius:15px;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.app-head h3{margin-top:4px}
+.fine{font-size:13px!important;color:var(--muted)!important}
+.store-btn{align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:8px;background:#e9edf7;color:#0b1020;font-weight:650;font-size:14px;text-decoration:none;padding:10px 16px;border-radius:12px}
+.store-btn:hover{background:#fff}
+.section-h{margin:36px 0 4px;font-size:20px}
+.card.preview:hover{transform:none}
+.tile{aspect-ratio:1.9/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:22px;letter-spacing:-.01em}
+.tile-mock{background:linear-gradient(135deg,#0f2a22,#123a2e 55%,#0e1527)}
+.tile-cast{background:linear-gradient(135deg,#2e2410,#3a2c12 55%,#0e1527)}
+.tagq{color:var(--ink)!important;font-style:italic}
+.badge.beta{color:#9fbaff;background:rgba(159,186,255,.1);border:1px solid #3a4870}
+.badge.dev{color:#f2c46b;background:rgba(242,196,107,.1);border:1px solid #4d4128}
+
 .foot{max-width:1100px;margin:0 auto;padding:12px 24px calc(32px + env(safe-area-inset-bottom));color:var(--muted);font-size:13px}
 
 @media (max-width: 720px){
@@ -70,5 +89,7 @@ a{color:var(--accent)}
   .card.game h3{font-size:15px}
   .card.game p{font-size:13px}
   .card.game .extras{display:none}
+  .app-feature .shots{padding:16px 10px;gap:8px}
+  .grid .card.preview{grid-column:1/-1}
 }
 @media (max-width: 380px){ .grid{grid-template-columns:1fr} }
