@@ -1,0 +1,74 @@
+:root{
+  --bg:#0b1020; --surface:#121a2e; --surface2:#18223a; --line:#26314d;
+  --ink:#e9edf7; --ink2:#aab3c8; --muted:#7c869e; --accent:#9fbaff; --gold:#f2c46b;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{background:radial-gradient(1200px 500px at 50% -120px,#1a2747 0%,rgba(11,16,32,0) 70%),var(--bg);min-height:100vh}
+a{color:var(--accent)}
+
+.hero{max-width:1100px;margin:0 auto;padding:calc(64px + env(safe-area-inset-top)) 24px 28px}
+.name{margin:0 0 10px;color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{margin:0;font-size:clamp(34px,6vw,60px);line-height:1.05;letter-spacing:-.02em}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 40px}
+.tabs{display:flex;gap:6px;padding:5px;background:var(--surface);border:1px solid var(--line);border-radius:14px;width:max-content;max-width:100%;margin-bottom:24px}
+.tabs button{font:inherit;font-size:15px;font-weight:600;color:var(--ink2);background:transparent;border:0;border-radius:10px;padding:10px 22px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{background:#26314d;color:var(--ink)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.panel{animation:fade .25s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.panel{animation:none}}
+.intro{margin:0 0 18px;color:var(--ink2);font-size:15px;line-height:1.5}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none;transition:border-color .2s, transform .2s}
+.card:hover{border-color:#3a4870;transform:translateY(-2px)}
+.card .thumb{display:block;aspect-ratio:1.9/1;background:#0e1527;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.light{background:#fff;aspect-ratio:1/1}
+.card .thumb.light img{object-fit:contain;padding:14px}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font-size:19px;letter-spacing:-.01em}
+.card h3 a{color:inherit;text-decoration:none}
+.card p{margin:0;color:var(--ink2);font-size:14px;line-height:1.5}
+.card .extras{font-size:13px}
+.meta{display:flex;gap:10px;align-items:center;font-size:12px}
+.kind{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:11px}
+.badge{border-radius:999px;padding:2px 9px;font-weight:600;font-size:11px}
+.badge.live{color:#7ee2a8;background:rgba(63,191,127,.12);border:1px solid #2d5a45}
+.cta{margin-top:auto;padding-top:6px;color:var(--accent);font-weight:600;font-size:14px;text-decoration:none}
+.card.feature{grid-column:1/-1;flex-direction:row}
+.card.feature .thumb{flex:1.3;aspect-ratio:auto;min-height:280px}
+.card.feature .body{flex:1;padding:26px 28px;justify-content:center}
+.card.feature h3{font-size:26px}
+
+.empty{text-align:center;padding:64px 20px;background:var(--surface);border:1px dashed var(--line);border-radius:18px;color:var(--ink2)}
+.empty-icon{color:var(--muted);margin-bottom:8px}
+.empty h2{margin:0 0 6px;color:var(--ink);font-size:20px}
+.empty p{margin:0;font-size:15px}
+
+.foot{max-width:1100px;margin:0 auto;padding:12px 24px calc(32px + env(safe-area-inset-bottom));color:var(--muted);font-size:13px}
+
+@media (max-width: 720px){
+  .hero{padding:calc(40px + env(safe-area-inset-top)) 18px 20px}
+  .wrap{padding:0 14px 32px}
+  .tabs{width:100%}
+  .tabs button{flex:1;padding:10px 8px}
+  .card.feature{flex-direction:column}
+  .card.feature .thumb{min-height:0;aspect-ratio:1.9/1}
+  .card.feature .body{padding:16px 18px 18px}
+  .card.feature h3{font-size:22px}
+  .grid{grid-template-columns:1fr 1fr;gap:12px}
+  .grid .card.feature{grid-column:1/-1}
+  .card.game .body{padding:12px 12px 14px;gap:6px}
+  .card.game h3{font-size:15px}
+  .card.game p{font-size:13px}
+  .card.game .extras{display:none}
+}
+@media (max-width: 380px){ .grid{grid-template-columns:1fr} }

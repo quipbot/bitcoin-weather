@@ -6,7 +6,7 @@
   const TL_SMOOTH = 4;            // timeline uses a 1-hour rolling average
   const MIN_COUNTRY_N = 3;        // need this many articles to shade a country
   const MAX_ZOOM = 10;
-  const DATA_URL = "data/weather.json";
+  const DATA_URL = "/data/weather.json";
   const PRICE_URL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const REGIONS = [
@@ -715,7 +715,7 @@
   }
 
   async function init() {
-    world = await (await fetch("data/countries-110m.json")).json();
+    world = await (await fetch("/data/countries-110m.json")).json();
     features = topojson.feature(world, world.objects.countries).features.filter((f) => f.properties.name !== "Antarctica");
     features.forEach((f) => { f._bounds = d3.geoBounds(f); });
     mesh = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);

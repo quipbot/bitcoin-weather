@@ -3,110 +3,116 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bitcoin Weather · How the world's news feels about Bitcoin</title>
-<meta name="description" content="A live, animated map of Bitcoin news sentiment around the world, built from GDELT data and updated every 15 minutes.">
+<title>Eric Robertson · Things Eric is working on</title>
+<meta name="description" content="Apps, projects and games Eric Robertson is working on.">
 <meta name="theme-color" content="#0b1020">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="BTC Weather">
-<meta property="og:title" content="Bitcoin Weather">
-<meta property="og:description" content="How the world's news feels about Bitcoin, right now.">
-<meta property="og:image" content="https://www.ericrobertson.org/icons/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Things Eric is working on">
+<meta property="og:description" content="Apps, projects and games from Eric Robertson.">
+<meta property="og:url" content="https://www.ericrobertson.org/">
+<link rel="icon" href="/icons/icon-192.png">
+<link rel="stylesheet" href="/home.css">
 </head>
 <body>
-<header class="top">
-  <div class="brand">
-    <h1>Bitcoin Weather</h1>
-    <p class="tag">How the world's news feels about Bitcoin, updated every 15 minutes</p>
-  </div>
-  <div class="top-actions">
-    <div class="price" id="price" hidden>
-      <span class="price-label">BTC</span>
-      <span class="price-val" id="priceVal">–</span>
-      <span class="price-chg" id="priceChg"></span>
-    </div>
-    <button class="icon-btn" id="share" aria-label="Share Bitcoin Weather">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Share</span>
-    </button>
-  </div>
+<header class="hero">
+  <p class="name">Eric Robertson</p>
+  <h1>Things Eric is working on</h1>
 </header>
 
-<main class="layout">
-  <section class="map-card" aria-label="Sentiment map">
-    <div class="forecast" id="forecast">
-      <div class="fc-icon" id="fcIcon" aria-hidden="true"></div>
-      <div class="fc-body">
-        <div class="fc-kicker" id="fcWhen">Global forecast</div>
-        <div class="fc-cond"><span id="fcCond">Loading…</span><span class="fc-trend" id="fcTrend"></span></div>
-        <div class="fc-stats"><span id="fcTone">–</span> tone · <span id="fcN">–</span> articles</div>
+<main class="wrap">
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-apps" aria-controls="apps" aria-selected="false" data-tab="apps">Apps</button>
+    <button role="tab" id="tab-projects" aria-controls="projects" aria-selected="true" data-tab="projects">Projects</button>
+    <button role="tab" id="tab-games" aria-controls="games" aria-selected="false" data-tab="games">Games</button>
+  </nav>
+
+  <!-- APPS -->
+  <section class="panel" id="apps" role="tabpanel" aria-labelledby="tab-apps" hidden>
+    <div class="empty">
+      <div class="empty-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="44" height="44"><rect x="12" y="4" width="24" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="38" x2="28" y2="38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
       </div>
+      <h2>Apps are on the way</h2>
+      <p>New iPhone apps will show up here as they launch. Check back soon.</p>
     </div>
-
-    <div class="seg" role="radiogroup" aria-label="Which articles to show">
-      <button role="radio" aria-checked="true" data-mode="all" class="on">All coverage</button>
-      <button role="radio" aria-checked="false" data-mode="focus">Bitcoin headlines</button>
-    </div>
-
-    <div class="map-stage" id="stage">
-      <canvas id="map" role="img" aria-label="World map shaded by Bitcoin news tone. Tap a country for details."></canvas>
-      <div class="zoom">
-        <button id="zin" aria-label="Zoom in">+</button>
-        <button id="zout" aria-label="Zoom out">−</button>
-      </div>
-      <div class="hint" id="hint">Tap a country · pinch to zoom</div>
-      <div class="tooltip" id="tip" hidden></div>
-      <div class="legend" aria-label="Legend">
-        <div class="legend-title">News tone</div>
-        <div class="legend-bar"></div>
-        <div class="legend-ticks"><span>Storms</span><span>Neutral</span><span>Sunny</span></div>
-      </div>
-    </div>
-
-    <nav class="regions" id="regions" aria-label="Jump to a region"></nav>
-
-    <section class="sheet" id="sheet" hidden aria-live="polite"></section>
   </section>
 
-  <section class="timeline" aria-label="24-hour timeline">
-    <div class="tl-head">
-      <button id="play" class="play" aria-label="Replay the last 24 hours">▶ Replay 24h</button>
-      <button id="live" class="live on">● Live</button>
-      <div class="tl-label" id="tlLabel"></div>
+  <!-- PROJECTS -->
+  <section class="panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+    <div class="grid">
+      <a class="card feature" href="/bitcoin-weather">
+        <div class="thumb"><img src="/icons/og.png" alt="Bitcoin Weather world map, colored by the tone of Bitcoin news" loading="lazy"></div>
+        <div class="body">
+          <div class="meta"><span class="badge live">● Live</span><span class="kind">Data visualization</span></div>
+          <h3>Bitcoin Weather</h3>
+          <p>A live, animated world map of how the news feels about Bitcoin. Every 15 minutes it reads global news from the GDELT Project and turns the tone of Bitcoin coverage into a weather forecast, from sunny to storms.</p>
+          <span class="cta">Open the map →</span>
+        </div>
+      </a>
     </div>
-    <svg id="tl" role="img" aria-label="Global Bitcoin news tone over the last 24 hours. Drag to pick a time."></svg>
   </section>
 
-  <aside class="side">
-    <section class="panel">
-      <h2>Country outlook</h2>
-      <p class="panel-sub" id="ctrySub">Last 3 hours</p>
-      <ol class="countries" id="countries"></ol>
-    </section>
-    <section class="panel">
-      <h2 id="headsTitle">Latest headlines</h2>
-      <ul class="heads" id="heads"></ul>
-    </section>
-  </aside>
+  <!-- GAMES -->
+  <section class="panel" id="games" role="tabpanel" aria-labelledby="tab-games" hidden>
+    <p class="intro">Party and family card games from <a href="https://www.gamethatsong.com" target="_blank" rel="noopener">Game That Song</a>, Eric's family-owned game company.</p>
+    <div class="grid games" id="gameGrid"></div>
+  </section>
 </main>
 
 <footer class="foot">
-  <p><strong>How to read this:</strong> every 15 minutes, <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT</a> scores the tone of news articles worldwide (how positive or negative the wording is). This map keeps the articles about Bitcoin and places them at the locations they mention. “All coverage” includes every article GDELT tags as Bitcoin-related; “Bitcoin headlines” keeps only stories whose headline is about Bitcoin or crypto. It measures the mood of <em>news coverage</em>, not of individual people, and it is not financial advice.</p>
-  <p class="muted">Conditions: Sunny ≥ +1 · Partly sunny 0 to +1 · Cloudy −1.5 to 0 · Rain −3 to −1.5 · Storms below −3. Price from CoinGecko. Data updated <span id="updated">–</span>.</p>
-  <p class="muted">© <span id="yr"></span> Eric Robertson · ericrobertson.org</p>
+  <p>© <span id="yr"></span> Eric Robertson · San Diego, CA</p>
 </footer>
 
-<div class="toast" id="toast" hidden></div>
+<script>
+(() => {
+  const CDN = "https://cdn.shopify.com/s/files/1/0827/1131/4652/files/";
+  const SHOP = "https://www.gamethatsong.com/products/";
+  const GAMES = [
+    { t: "Game That Song", sub: "Music party game", d: "The music party game that started it all. Pick the best song for the card, or guess the song, and compete for the win.", img: "71TulS37TsL.jpg",
+      h: "game-that-song-music-party-game-for-adults-family-card-game-for-game-night-pick-or-guess-the-song-play-the-best-song-compete-fun-karaoke-style-game-for-music-lovers",
+      extras: [["80's Mix", "game-that-song-80s-mix"], ["90's Mix", "game-that-song-90s-mix"], ["2000's Mix", "game-that-song-2000s-mix"]] },
+    { t: "Lyric Legend: 90's R&B", sub: "Lyric trivia", d: "Lyric trivia for anyone who grew up on 90's R&B.", img: "81oezw1UCfL.jpg", h: "lyric-legend-90s-rnb" },
+    { t: "Lyric Legend: 90's Hip-Hop & Rap", sub: "Lyric trivia", d: "Lyric trivia for 90's hip-hop and rap fans.", img: "815bu0EZHPL._AC_SL1500.jpg", h: "lyric-legend-90s-hip-hop" },
+    { t: "Lyric Legend: 2000's Hip-Hop & Rap", sub: "Lyric trivia", d: "Lyric trivia for the 2000's hip-hop and rap era.", img: "811CvLrm2VL._AC_SL1500.jpg", h: "lyric-legend-2000s-hip-hop" },
+    { t: "Name That Puppy", sub: "Family game", d: "A dog-themed family game for game night.", img: "81stmkacZ9L._AC_SL1500.jpg", h: "name-that-puppy" },
+    { t: "Name That Kitty", sub: "Family game", d: "A cat-themed family game for game night.", img: "718iyhP824L.jpg", h: "name-that-kitty-fun-cat-game-for-kids-thats-great-for-family-game-night-100-card-cat-themed-toy-for-girls-and-boys-easy-to-play" },
+    { t: "Start That Convo", sub: "Conversation cards", d: "Conversation cards for getting people talking.", img: "71b8St_5GJL._AC_SL1500.jpg", h: "start-that-convo" },
+  ];
+  const esc = (s) => s.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]));
+  document.getElementById("gameGrid").innerHTML = GAMES.map((g) => `
+    <article class="card game">
+      <a class="thumb light" href="${SHOP + g.h}" target="_blank" rel="noopener"><img src="${CDN + g.img}?width=600" alt="${esc(g.t)} box" loading="lazy"></a>
+      <div class="body">
+        <div class="meta"><span class="kind">${esc(g.sub)}</span></div>
+        <h3><a href="${SHOP + g.h}" target="_blank" rel="noopener">${esc(g.t)}</a></h3>
+        <p>${esc(g.d)}</p>
+        ${g.extras ? `<p class="extras">Expansions: ${g.extras.map(([n, h]) => `<a href="${SHOP + h}" target="_blank" rel="noopener">${n}</a>`).join(" · ")}</p>` : ""}
+        <a class="cta" href="${SHOP + g.h}" target="_blank" rel="noopener">Get it →</a>
+      </div>
+    </article>`).join("");
 
-<script src="vendor/d3-array.min.js"></script>
-<script src="vendor/d3-geo.min.js"></script>
-<script src="vendor/topojson-client.min.js"></script>
-<script src="app.js"></script>
+  // tabs (remember choice in the URL hash: #apps, #projects, #games)
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function show(id, focus) {
+    if (!document.getElementById(id)) id = "projects";
+    tabs.forEach((t) => {
+      const on = t.dataset.tab === id;
+      t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.dataset.tab).hidden = !on;
+      if (on && focus) t.focus();
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => { history.replaceState(null, "", "#" + t.dataset.tab); show(t.dataset.tab); });
+    t.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
+      const n = tabs[(i + d + tabs.length) % tabs.length];
+      history.replaceState(null, "", "#" + n.dataset.tab); show(n.dataset.tab, true);
+    });
+  });
+  show(location.hash.slice(1) || "projects");
+  window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
