@@ -68,6 +68,10 @@ a{color:var(--accent)}
 .tile{aspect-ratio:1.9/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:22px;letter-spacing:-.01em}
 .tile-mock{background:linear-gradient(135deg,#0f2a22,#123a2e 55%,#0e1527)}
 .tile-cast{background:linear-gradient(135deg,#2e2410,#3a2c12 55%,#0e1527)}
+.shots-tile{flex-direction:row;gap:14px;padding:18px 0 0;align-items:flex-end;overflow:hidden}
+.shots-tile img{width:34%;max-width:150px;border-radius:14px 14px 0 0;box-shadow:0 8px 24px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);border-bottom:0;aspect-ratio:600/700;object-fit:cover;object-position:top}
+.tile-icon{width:96px;height:96px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.tile-cast{background:linear-gradient(135deg,#2a1c47,#3a2560 55%,#0e1527)}
 .tagq{color:var(--ink)!important;font-style:italic}
 .badge.beta{color:#9fbaff;background:rgba(159,186,255,.1);border:1px solid #3a4870}
 .badge.dev{color:#f2c46b;background:rgba(242,196,107,.1);border:1px solid #4d4128}
