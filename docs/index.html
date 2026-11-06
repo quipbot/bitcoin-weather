@@ -10,7 +10,7 @@
 <meta property="og:description" content="Apps, projects and games from Eric Robertson.">
 <meta property="og:url" content="https://www.ericrobertson.org/">
 <link rel="icon" href="/icons/icon-192.png">
-<link rel="stylesheet" href="/home.css?v=4">
+<link rel="stylesheet" href="/home.css?v=5">
 </head>
 <body>
 <header class="hero">
@@ -23,6 +23,7 @@
     <button role="tab" id="tab-apps" aria-controls="apps" aria-selected="false" data-tab="apps">Apps</button>
     <button role="tab" id="tab-projects" aria-controls="projects" aria-selected="true" data-tab="projects">Projects</button>
     <button role="tab" id="tab-games" aria-controls="games" aria-selected="false" data-tab="games">Games</button>
+    <button role="tab" id="tab-teaching" aria-controls="teaching" aria-selected="false" data-tab="teaching">Teaching</button>
   </nav>
 
   <!-- APPS -->
@@ -99,6 +100,54 @@
   <section class="panel" id="games" role="tabpanel" aria-labelledby="tab-games" hidden>
     <p class="intro">Party and family card games from <a href="https://www.gamethatsong.com" target="_blank" rel="noopener">Game That Song</a>, Eric's family-owned game company.</p>
     <div class="grid games" id="gameGrid"></div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="panel" id="teaching" role="tabpanel" aria-labelledby="tab-teaching" hidden>
+    <article class="card teach-hero">
+      <div class="body">
+        <div class="meta"><span class="kind">MiraCosta College · Oceanside, CA</span></div>
+        <h3>Professor &amp; Department Chair, Communication Studies</h3>
+        <p>Eric has taught communication for 22 years at the university and community college levels. Before MiraCosta he was on the faculty at San Diego State University, where he also earned his graduate degree in communication.</p>
+        <div class="stats">
+          <div><b>22</b><span>years teaching</span></div>
+          <div><b>Chair</b><span>Comm. Studies dept.</span></div>
+          <div><b>SDSU</b><span>former faculty &amp; alum</span></div>
+        </div>
+      </div>
+    </article>
+
+    <h2 class="section-h">Courses</h2>
+    <div class="grid courses">
+      <article class="card course">
+        <div class="body">
+          <div class="meta"><span class="badge beta">Online · 8 weeks</span></div>
+          <h3>COMM 106 · Group Communication</h3>
+          <p>How small groups work: roles, leadership, decision-making and handling conflict.</p>
+        </div>
+      </article>
+      <article class="card course">
+        <div class="body">
+          <div class="meta"><span class="badge dev">Communication</span></div>
+          <h3>Argumentation</h3>
+          <p>Building and testing arguments: claims, evidence and reasoning, and how to respond to the other side.</p>
+        </div>
+      </article>
+    </div>
+
+    <h2 class="section-h">What students say</h2>
+    <a class="card rmp" href="https://www.ratemyprofessors.com/professor/1495590" target="_blank" rel="noopener">
+      <div class="body">
+        <div class="rmp-row">
+          <div class="rmp-logo" aria-hidden="true">RMP</div>
+          <div>
+            <h3>Rate My Professors</h3>
+            <p>Read reviews from Eric's students at MiraCosta College.</p>
+          </div>
+          <span class="cta">See all reviews →</span>
+        </div>
+      </div>
+    </a>
   </section>
 </main>
 

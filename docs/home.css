@@ -53,6 +53,20 @@ a{color:var(--accent)}
 .empty h2{margin:0 0 6px;color:var(--ink);font-size:20px}
 .empty p{margin:0;font-size:15px}
 
+/* teaching */
+.teach-hero{background:radial-gradient(700px 260px at 0% 0%,#1d2a4b,var(--surface) 70%)}
+.teach-hero .body{padding:26px 28px}
+.teach-hero h3{font-size:26px}
+.teach-hero p{max-width:720px;font-size:15px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.stats div{background:#0e1527;border:1px solid var(--line);border-radius:14px;padding:12px 18px;min-width:150px}
+.stats b{display:block;font-size:22px;color:var(--gold)}
+.stats span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card.course:hover{transform:none}
+.rmp-row{display:flex;align-items:center;gap:16px}
+.rmp-row .cta{margin:0 0 0 auto;padding:0;white-space:nowrap}
+.rmp-logo{width:56px;height:56px;border-radius:14px;background:#151515;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex:none;border:1px solid #333}
+
 /* apps */
 .app-feature .shots{flex:1.2;display:flex;gap:12px;justify-content:center;align-items:center;padding:24px;background:radial-gradient(circle at 50% 30%,#1d2a4b,#0e1527 75%)}
 .app-feature .shots img{width:30%;max-width:170px;aspect-ratio:320/452;object-fit:cover;object-position:bottom;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid #2b3658}
@@ -95,5 +109,14 @@ a{color:var(--accent)}
   .card.game .extras{display:none}
   .app-feature .shots{padding:16px 10px;gap:8px}
   .grid .card.preview{grid-column:1/-1}
+  .grid.courses .card{grid-column:1/-1}
+  .teach-hero .body{padding:18px}
+  .teach-hero h3{font-size:21px}
+  .stats div{min-width:0;flex:1;padding:10px 12px}
+  .stats span{letter-spacing:.02em;font-size:11px;overflow-wrap:anywhere}
+  .stats b{font-size:19px}
+  .rmp-row{flex-wrap:wrap}
+  .rmp-row .cta{margin:0}
+  .tabs button{padding:10px 4px;font-size:14px}
 }
 @media (max-width: 380px){ .grid{grid-template-columns:1fr} }
